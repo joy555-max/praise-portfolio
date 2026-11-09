@@ -764,3 +764,35 @@ button {
     animation-duration: .01ms !important;
   }
 }
+
+
+/* GLOBAL TEXT VISIBILITY FIX */
+body,
+.site-wrapper,
+.site-wrapper * {
+  color: #f4f1ff !important;
+}
+
+/* Keep important accent colours */
+.logo span,
+.hero h1 span,
+.section-heading h2 span,
+.contact h2 span {
+  color: #a78bfa !important;
+}
+
+.code-purple {
+  color: #c084fc !important;
+}
+
+.code-blue {
+  color: #60a5fa !important;
+}
+
+.code-green {
+  color: #86efac !important;
+}
+
+.code-orange {
+  color: #fbbf24 !important;
+}

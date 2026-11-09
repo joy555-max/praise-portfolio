@@ -1,135 +1,275 @@
-
+import { useState } from "react";
 import "./App.css";
 
+const projects = [
+  {
+    number: "01",
+    name: "Personal Portfolio",
+    type: "WEB DESIGN",
+    description:
+      "A modern personal website designed to showcase skills, projects, and professional experience.",
+    stack: ["React", "CSS", "JavaScript"],
+    status: "Portfolio concept",
+  },
+  {
+    number: "02",
+    name: "Restaurant Website",
+    type: "WEB DEVELOPMENT",
+    description:
+      "A stylish restaurant website concept with a clean menu layout and a smooth browsing experience.",
+    stack: ["HTML", "CSS", "JavaScript"],
+    status: "Planned project",
+  },
+  {
+    number: "03",
+    name: "Inventory Management",
+    type: "FULL-STACK CONCEPT",
+    description:
+      "A proposed application for managing products, tracking stock, and organizing inventory records.",
+    stack: ["React", "Node.js", "Express"],
+    status: "Planned project",
+  },
+];
+
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const closeMenu = () => setMenuOpen(false);
+
   return (
-    <div className="container">
-      {/* Navigation */}
-      <nav>
-        <div className="logo">PRAISE.</div>
+    <div className="site-wrapper">
+      <header className="navbar">
+        <a className="logo" href="#home" onClick={closeMenu}>
+          Praise<span>.</span>
+        </a>
 
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+        <button
+          className="menu-toggle"
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+        >
+          {menuOpen ? "✕" : "☰"}
+        </button>
 
-      {/* Hero */}
-      <section className="hero" id="home">
-        <span>WELCOME TO MY PORTFOLIO</span>
+        <nav className={menuOpen ? "nav-links open" : "nav-links"}>
+          <a href="#home" onClick={closeMenu}>Home</a>
+          <a href="#about" onClick={closeMenu}>About</a>
+          <a href="#skills" onClick={closeMenu}>Skills</a>
+          <a href="#projects" onClick={closeMenu}>Projects</a>
+          <a className="nav-contact" href="#contact" onClick={closeMenu}>
+            Let's talk <span>↗</span>
+          </a>
+        </nav>
+      </header>
 
-        <h1>Hi, I'm Praise 👋</h1>
+      <main>
+        <section className="hero section" id="home">
+          <div className="hero-content">
+            <div className="availability">
+              <span className="availability-dot"></span>
+              OPEN TO OPPORTUNITIES
+            </div>
 
-        <h2>Full-Stack Developer</h2>
+            <p className="eyebrow">HELLO, I'M PRAISE</p>
 
-        <p>
-          I build modern, responsive and user-friendly
-          web applications using modern technologies.
-          I enjoy turning ideas into real digital products.
-        </p>
+            <h1>
+              Building digital
+              <br />
+              experiences that
+              <br />
+              <span>make an impact.</span>
+            </h1>
 
-        <div className="buttons">
-          <a className="button" href="#projects">
-            View My Work
+            <p className="hero-description">
+              I'm a Full-Stack Developer passionate about creating
+              beautiful, functional, and user-friendly web experiences.
+              I turn ideas into digital products.
+            </p>
+
+            <div className="hero-buttons">
+              <a className="primary-button" href="#projects">
+                Explore my work <span>↗</span>
+              </a>
+              <a className="secondary-button" href="#contact">
+                Let's connect
+              </a>
+            </div>
+
+            <div className="hero-socials">
+              <a href="https://github.com/joy555-max" target="_blank" rel="noreferrer">
+                GitHub ↗
+              </a>
+              <span className="social-divider"></span>
+              <a href="mailto:joysolo455@gmail.com">Email ↗</a>
+            </div>
+          </div>
+
+          <div className="hero-visual">
+            <div className="visual-glow"></div>
+            <div className="code-card">
+              <div className="code-top">
+                <div className="window-dots">
+                  <i></i><i></i><i></i>
+                </div>
+                <span>developer.js</span>
+              </div>
+
+              <div className="code-content">
+                <p><span className="code-purple">const</span> developer = {"{"}</p>
+                <p className="indent"><span className="code-blue">name</span>: <span className="code-green">"Praise"</span>,</p>
+                <p className="indent"><span className="code-blue">role</span>: <span className="code-green">"Full-Stack Developer"</span>,</p>
+                <p className="indent"><span className="code-blue">skills</span>: [</p>
+                <p className="indent double-indent"><span className="code-green">"React"</span>,</p>
+                <p className="indent double-indent"><span className="code-green">"JavaScript"</span>,</p>
+                <p className="indent double-indent"><span className="code-green">"Node.js"</span></p>
+                <p className="indent">],</p>
+                <p className="indent"><span className="code-blue">creative</span>: <span className="code-orange">true</span></p>
+                <p>{"};"}</p>
+                <p className="code-comment">// Always building something better.</p>
+              </div>
+            </div>
+
+            <div className="floating-tag tag-one">✦ Clean code</div>
+            <div className="floating-tag tag-two">{"<"} Creative mind {"/>"}</div>
+          </div>
+
+          <div className="hero-bottom">
+            <span>BASED IN NIGERIA</span>
+            <span>SCROLL TO EXPLORE ↓</span>
+          </div>
+        </section>
+
+        <section className="about section" id="about">
+          <div className="section-heading">
+            <span className="section-number">01 / ABOUT</span>
+            <h2>A little about <span>me.</span></h2>
+          </div>
+
+          <div className="about-grid">
+            <div className="about-intro">
+              <p className="large-copy">
+                I enjoy turning complex ideas into simple, beautiful,
+                and useful digital experiences.
+              </p>
+            </div>
+
+            <div className="about-details">
+              <p>
+                I'm Praise, a Full-Stack Developer focused on building
+                modern websites and web applications. I work with
+                frontend technologies and backend tools to create
+                experiences that look good and work smoothly.
+              </p>
+              <p>
+                I'm constantly learning, improving my craft, and
+                exploring new ways to solve problems through code.
+              </p>
+              <a className="text-link" href="mailto:joysolo455@gmail.com">
+                Get in touch <span>↗</span>
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="skills section" id="skills">
+          <div className="section-heading">
+            <span className="section-number">02 / SKILLS</span>
+            <h2>My tools of <span>the trade.</span></h2>
+            <p>The technologies I use to bring ideas to life.</p>
+          </div>
+
+          <div className="skills-grid">
+            <article className="skill-card">
+              <span className="skill-icon">01</span>
+              <h3>Frontend</h3>
+              <p>Creating clean, responsive, and interactive interfaces.</p>
+              <div className="skill-tags">
+                <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span>
+              </div>
+            </article>
+
+            <article className="skill-card">
+              <span className="skill-icon">02</span>
+              <h3>Backend</h3>
+              <p>Building application logic and connecting services.</p>
+              <div className="skill-tags">
+                <span>Node.js</span><span>Express</span><span>REST APIs</span>
+              </div>
+            </article>
+
+            <article className="skill-card">
+              <span className="skill-icon">03</span>
+              <h3>Tools</h3>
+              <p>Tools that help me build, manage, and ship projects.</p>
+              <div className="skill-tags">
+                <span>Git</span><span>GitHub</span><span>VS Code</span><span>npm</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section className="projects section" id="projects">
+          <div className="section-heading projects-heading">
+            <div>
+              <span className="section-number">03 / SELECTED WORK</span>
+              <h2>Ideas into <span>experiences.</span></h2>
+            </div>
+            <p>A few concepts I'm developing and exploring.</p>
+          </div>
+
+          <div className="projects-grid">
+            {projects.map((project) => (
+              <article className="project-card" key={project.number}>
+                <div className="project-preview">
+                  <span className="project-preview-number">{project.number}</span>
+                  <div className="preview-symbol">
+                    {project.number === "01" ? "P." : project.number === "02" ? "R." : "I."}
+                  </div>
+                  <span className="preview-label">PRAISE / PROJECT</span>
+                </div>
+
+                <div className="project-info">
+                  <div className="project-type">{project.type}</div>
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <div className="skill-tags">
+                    {project.stack.map((item) => <span key={item}>{item}</span>)}
+                  </div>
+                  <div className="project-status">{project.status}</div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="contact section" id="contact">
+          <span className="section-number">04 / CONTACT</span>
+          <p className="eyebrow">HAVE AN IDEA?</p>
+          <h2>Let's build something <span>great.</span></h2>
+          <p className="contact-description">
+            Have a project, opportunity, or idea you'd like to discuss?
+            I'd love to hear from you.
+          </p>
+
+          <a className="primary-button contact-button" href="mailto:joysolo455@gmail.com">
+            Say hello <span>↗</span>
           </a>
 
-          <a className="button secondary" href="#contact">
-            Contact Me
-          </a>
-        </div>
-      </section>
-
-      {/* About */}
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I'm an intermediate Full-Stack Developer
-          passionate about building websites and
-          applications that solve real problems.
-        </p>
-      </section>
-
-      {/* Skills */}
-
-      <section id="skills">
-        <h2>My Skills</h2>
-
-        <div className="card-grid">
-          <div className="info-card">
-            <h3>Frontend</h3>
-            <p>HTML, CSS, JavaScript, React</p>
+          <div className="contact-footer">
+            <a href="mailto:joysolo455@gmail.com">joysolo455@gmail.com</a>
+            <a href="https://github.com/joy555-max" target="_blank" rel="noreferrer">
+              GitHub ↗
+            </a>
           </div>
+        </section>
+      </main>
 
-          <div className="info-card">
-            <h3>Backend</h3>
-            <p>Node.js, Express.js, REST APIs</p>
-          </div>
-
-          <div className="info-card">
-            <h3>Tools</h3>
-            <p>Git, GitHub, VS Code, npm</p>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Projects */}
-
-      <section id="projects">
-        <h2>My Projects</h2>
-
-        <div className="card-grid">
-          <div className="info-card">
-            <h3>Personal Portfolio</h3>
-            <p>A responsive website showcasing my skills and work.</p>
-            <span>React • CSS</span>
-          </div>
-
-          <div className="info-card">
-            <h3>Restaurant Website</h3>
-            <p>A website concept for a restaurant with a modern design.</p>
-            <span>HTML • CSS • JavaScript</span>
-          </div>
-
-          <div className="info-card">
-            <h3>Inventory Management</h3>
-            <p>A planned app for managing products and stock.</p>
-            <span>React • Node.js</span>
-          </div>
-        </div>
-      </section>
-
-
-      {/* Contact */}
-
-
-      <section id="contact">
-        <h2>Let's Work Together</h2>
-
-        <p>
-          Have a project in mind? Let's discuss how I can
-          help bring your ideas to life.
-        </p>
-
-        <div className="contact-links">
-          <a href="mailto:joysolo455@gmail.com">
-            Email Me
-          </a>
-
-          <a
-            href="https://github.com/joy555-max"
-            target="_blank"
-            rel="noreferrer"
-          >
-            GitHub
-          </a>
-        </div>
-      </section>
-
-
+      <footer className="footer">
+        <a className="logo" href="#home">Praise<span>.</span></a>
+        <p>Designed & built with care by Praise.</p>
+        <span>© {new Date().getFullYear()} ALL RIGHTS RESERVED</span>
+      </footer>
     </div>
   );
 }
